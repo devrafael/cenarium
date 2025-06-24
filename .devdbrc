@@ -1,0 +1,10 @@
+[
+  {
+    "type": "sqlite",
+    "path": "c:\\Users\\crisl\\OneDrive\\Documentos\\projetos rafa\\cenarium\\database\\database.sqlite"
+  },
+  {
+    "type": "sqlite",
+    "path": "c:\\Users\\crisl\\OneDrive\\Documentos\\projetos-rafa\\cenarium\\database\\database.sqlite"
+  }
+]

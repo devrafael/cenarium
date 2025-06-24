@@ -15,7 +15,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
         <!-- CSS da aplicação-->
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+        <link rel="shortcut icon" href="/img/microfone.png" type="image/x-icon">
 
     </head>
     <body>
@@ -23,7 +25,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/" class="navbar-brand">
-                        <img src="/img/banner.png" alt="" >
+                        <img src="/img/banner-2.png" alt="" >
                     </a>
 
                     <ul class="navbar-nav">
@@ -31,7 +33,7 @@
                             <a href="/" class="nav-link">Eventos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Criar Evento</a>
+                            <a href="/eventos/form" class="nav-link">Criar evento</a>
                         </li>
                         <li class="nav-item">
                             <a href="/" class="nav-link">Entrar</a>
@@ -44,7 +46,7 @@
         </header>
         @yield('content')
         <footer>
-            <p>Cenarium &copy; 2025</p>
+            <p>Cenarium &copy; 2025 - Desenvolvido por Rafael Almeida</p>
         </footer>
     </body>
 </html>

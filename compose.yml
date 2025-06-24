@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  firebird:
+    image: jacobalberty/firebird:latest
+    container_name: cenarium-firebirddb
+    environment:
+      ISC_PASSWORD: masterkey
+      FIREBIRD_DATABASE: /firebird/data/cenarium.fdb
+    ports:
+      - "3050:3050"
+    volumes:
+      - firebird_data:/firebird/data
+
+volumes:
+  firebird_data:
