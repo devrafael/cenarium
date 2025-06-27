@@ -42,7 +42,7 @@ header{
 }
 
 #navbar a {
-    font-size: 14px;
+    font-size: 16px;
     color: gray;
 }
 #navbar a:hover {
@@ -85,27 +85,110 @@ header{
 
 #events-container h2{
     margin-bottom: 10px;
+    font-family: 'Poppins';
+
 }
 
 #events-container h5{
     margin-bottom: 10px;
 }
 
+
 #cards-container .card {
-    flex: 1 1 0;
+    flex: 1 1 24%;
     max-width: 25%;
     border-radius: 10px;
     padding: 0;
-    margin: 5px;
+    margin: .5%;
+
+
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+#event-create-container {
+    padding: 30px;
+}
+
+#event-create-container h1{
+    font-family: 'Poppins';
+    text-align: center;
+}
+
+#event-create-container label {
+    font-weight: bold;
+}
+
+#event-create-container input, select, textarea{
+    font-size: 14px;
+}
+
+.msg {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
 }
 
 
+/* Pagina de detalhe do evento */
+#image-container,
+#info-container{
+    margin-top: 30px;
+}
 
+#image-container{
+    height: 500px;
+}
 
+#image-container img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
 
+#info-container h1 {
+    font-size: 36px;
+    font-weight: 300;
+}
 
+#info-container p {
+    margin: 0;
+    font-size: 16px;
+    display: flex;
+}
 
+#info-container h3,
+#description-container h3{
+    font-size: 20px;
+    font-weight: bold;
+}
 
+#description-container{
+    margin-top: 20px;
+}
+
+#info-container ion-icon{
+    font-size: 20px;
+    color:#F2A340;
+    margin-right: 5px;
+}
+
+#info-container #event-submit{
+    margin: 20px 0;
+}
+
+#titulo{
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Poppins';
+    font-weight: bold;
+}
 
 
 

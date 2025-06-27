@@ -44,7 +44,18 @@
                 </div>
             </nav>
         </header>
-        @yield('content')
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                    @if(session(key: 'msg'))
+                        <p class="msg">{{ session('msg') }}</p>
+                    @endif
+                    @yield('content')
+                </div>
+            </div>
+        </main>
+
+
         <footer>
             <p>Cenarium &copy; 2025 - Desenvolvido por Rafael Almeida</p>
         </footer>
