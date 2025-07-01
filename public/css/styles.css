@@ -190,9 +190,18 @@ header{
     font-weight: bold;
 }
 
+#items-list{
+    list-style: none;
+    padding-left: 0;
+}
 
 
+#items-list li{
+    display: flex;
+}
 
+
+/* footer */
 
 footer{
     background-color: #F2A340;

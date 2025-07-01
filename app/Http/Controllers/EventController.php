@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
     public function index()
     {
-        $eventos = Event::all();
-        return view('home', ['eventos' => $eventos]);
+        $buscar = request('search');
+
+        if($buscar){
+            $eventos = Event::where([
+                ['title', 'like', '%'.$buscar.'%']
+            ])->get();
+        }else {
+            $eventos = Event::all();
+        }
+
+
+        return view('home', ['eventos' => $eventos, 'buscar' => $buscar]);
     }
 
     public function formCreate()
@@ -22,9 +33,11 @@ class EventController extends Controller
     {
         $evento = new Event();
         $evento->title = $request->title;
+        $evento->date = $request->date;
         $evento->city = $request->city;
         $evento->private = $request->private;
         $evento->description = $request->description;
+        $evento->items = $request->items;
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
@@ -38,6 +51,10 @@ class EventController extends Controller
 
             $evento->image = $imageName;
         }
+
+        $user = Auth::user();
+        $evento->user_id = $user->id;
+
 
         $evento->save();
         return redirect('/')->with('msg', 'Evento criado com sucesso');
