@@ -76,7 +76,7 @@ header{
 
 
 #events-container img{
-    max-height: 150px;
+    max-height: 130px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border: 1px solid #7575751d;
@@ -96,7 +96,7 @@ header{
 
 #cards-container .card {
     flex: 1 1 24%;
-    max-width: 25%;
+    max-width: 20%;
     border-radius: 10px;
     padding: 0;
     margin: .5%;
@@ -170,7 +170,7 @@ header{
 }
 
 #description-container{
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #info-container ion-icon{
@@ -200,6 +200,40 @@ header{
     display: flex;
 }
 
+#btn-inscrever-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Dashboard */
+.dashboard-title-container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#dashboard-title{
+    font-family: 'Poppins';
+}
+
+.dashboard-title-container th {
+    width: 25%;
+
+}
+
+.dashboard-title-container form {
+    display: inline-block;
+}
+
+#btn-edit, #btn-delete{
+    color: white;
+}
+
+/* Edit Page */
+.img-preview{
+    width: 150px;
+    height: 100px;
+}
 
 /* footer */
 

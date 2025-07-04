@@ -39,6 +39,7 @@ class EventController extends Controller
         $evento->description = $request->description;
         $evento->items = $request->items;
 
+
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
 
@@ -62,8 +63,70 @@ class EventController extends Controller
 
     public function show($id){
         $evento = Event::findOrFail($id);
-        return view('eventos.evento-detalhe', ['evento' => $evento]);
+        $criadorEvento = $evento->user->name;
+        return view('eventos.evento-detalhe', [
+            'evento' => $evento,
+            'donoEvento' => $criadorEvento
+        ]);
     }
+
+    public function dashboard(){
+        $user = Auth::user();
+        $eventosUsuario = $user->events;
+        $eventsAsParticipant = $user->eventsAsParticipant;
+        return view('eventos.dashboard', [
+            'eventosUsuario' => $eventosUsuario,
+            'eventsAsParticipant' => $eventsAsParticipant
+        ]);
+    }
+
+    public function destroy($id){
+        Event::findOrFail($id)->delete();
+        return redirect('/dashboard')->with('msg','Evento deletado com sucesso!');
+    }
+
+    public function formEdit($id){
+        $user = Auth::user();
+        $evento = Event::findOrFail($id);
+        if($user->id != $evento->user_id){
+            return redirect('/dashboard');
+        }
+        return view("eventos.editar", ['evento' => $evento]);
+    }
+
+    public function update(Request $request){
+        $data = $request->all();
+
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() .
+                strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path('img/events'), $imageName);
+
+            $data['image']= $imageName;
+        }
+
+        Event::findOrFail($request->id)->update($data);
+        return redirect('/dashboard')->with('msg', 'Evento editado com sucesso!');
+    }
+
+    public function inscreverEvento($id){
+        $user = Auth::user();
+        $user->eventsAsParticipant()->attach($id);
+
+        $evento = Event::findOrFail($id);
+        return redirect('/dashboard')->with('msg', 'Sua presença está confimada no evento: ' . $evento->title);
+
+
+
+
+    }
+
 
 
 }

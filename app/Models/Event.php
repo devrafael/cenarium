@@ -14,7 +14,14 @@ class Event extends Model
         'date'
     ];
 
-    public function User(){
-        return $this->belongsTo('App\Models\User');
+    protected $guarded=[];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

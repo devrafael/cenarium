@@ -17,13 +17,22 @@
                 </p>
                 <p class="events-participantes">
                     <ion-icon name="people-outline"></ion-icon>
-                    X Participantes
+                    {{ count($evento->users) }} Participante(s)
                 </p>
                 <p class="event-owner">
                     <ion-icon name="star-outline"></ion-icon>
-                    Dono do Evento
+                    Criado por: {{ $donoEvento }}
                 </p>
-                <a href="" class="btn btn-primary" id="event-submit">Confirmar Presença</a>
+                <form id="btn-inscrever-container" action="/eventos/inscrever/{{$evento->id}}" method="POST">
+                    @csrf
+                    <a
+                    href="/eventos/inscrever/{{$evento->id}}"
+                    class="btn btn-primary"
+                    d="event-submit"
+                    onclick="event.preventDefault(); this.closest('form').submit();"
+                    >Confirmar Presença
+                    </a>
+                </form>
                 <h3>O evento conta com:</h3>
                 <ul id="items-list">
                     @foreach ($evento->items as $item)
